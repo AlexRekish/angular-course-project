@@ -1,9 +1,10 @@
-export interface IRecipe {
-  name: string;
-  description: string;
-  imagePath: string;
-}
+import { Ingredient } from '../../shared/ingredient.model';
 
-export class Recipe implements IRecipe {
-  constructor(public name: string, public description: string, public imagePath: string) {}
+export class Recipe {
+  constructor(
+    public name: string,
+    public description: string,
+    public imagePath: string,
+    public ingredients: Ingredient[]
+  ) {}
 }

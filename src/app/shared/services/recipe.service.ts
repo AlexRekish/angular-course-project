@@ -8,6 +8,7 @@ import { Ingredient } from '../ingredient.model';
 export class RecipeService {
   private recipes: Recipe[] = [
     new Recipe(
+      1,
       'A test recipe',
       'This is simply a test',
       'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/goulash.jpg',
@@ -21,6 +22,11 @@ export class RecipeService {
 
   getRecipes() {
     return [...this.recipes];
+  }
+
+  getRecipeById(id: number): Recipe {
+    const recipe = this.recipes.find((item: Recipe): boolean => item.id === id);
+    return recipe;
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {

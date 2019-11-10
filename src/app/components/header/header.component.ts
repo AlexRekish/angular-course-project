@@ -1,6 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-
-import { SelectedRoute } from './../../shared/enums';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +7,4 @@ import { SelectedRoute } from './../../shared/enums';
 })
 export class HeaderComponent {
   collapsed = true;
-  SelectedRoute = SelectedRoute;
-
-  @Output() routeSelected = new EventEmitter<SelectedRoute>();
-
-  onSelectRoute(route: SelectedRoute): void {
-    this.routeSelected.emit(route);
-  }
 }

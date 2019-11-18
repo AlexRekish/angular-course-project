@@ -9,10 +9,4 @@ import { SelectedRoute } from './shared/enums';
 })
 export class AppComponent {
   title = 'course-project';
-  selectedRoute: SelectedRoute = SelectedRoute.Recipes;
-  SelectedRoute = SelectedRoute;
-
-  onRouteSelected(route: SelectedRoute): void {
-    this.selectedRoute = route;
-  }
 }

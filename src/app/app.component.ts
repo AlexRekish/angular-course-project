@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { SelectedRoute } from './shared/enums';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

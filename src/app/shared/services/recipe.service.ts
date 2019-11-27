@@ -20,8 +20,17 @@ export class RecipeService {
 
   constructor(private shoppingListService: ShoppingListService) {}
 
+  fireChanges(): void {
+    this.recipeChanged.next([...this.recipes]);
+  }
+
   getRecipes() {
     return [...this.recipes];
+  }
+
+  setRecipes(recipes: Recipe[]): void {
+    this.recipes = recipes;
+    this.fireChanges();
   }
 
   getRecipeById(id: number): Recipe {
@@ -35,18 +44,18 @@ export class RecipeService {
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
-    this.recipeChanged.next([...this.recipes]);
+    this.fireChanges();
   }
 
   updateRecipe(id: number, recipe: Recipe) {
     const index = this.recipes.findIndex((r: Recipe) => r.id === id);
     this.recipes[index] = recipe;
-    this.recipeChanged.next([...this.recipes]);
+    this.fireChanges();
   }
 
   deleteRecipe(id: number) {
     const index = this.recipes.findIndex((r: Recipe) => r.id === id);
     this.recipes.splice(index, 1);
-    this.recipeChanged.next([...this.recipes]);
+    this.fireChanges();
   }
 }
